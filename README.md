@@ -17,31 +17,33 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <h2>Lab Walk-through:</h2>
 
 <p align="center">
-1. Lab Architecture: <br/>
+1. First I created a resource group which will contain a windows virtual machine, 
+ azure sentinel resources and the log analytics workspace : <br/>
 <img src="https://i.ibb.co/4tgPsHf/1-creating-resource-group.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-2. Setting up Microsoft Sentinel:  <br/>
+2. Then i created a windows virtual machine :  <br/>
 <img src="https://i.ibb.co/FYJPTX5/2create-VM-1.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-3. Configuring Log Analytics for Azure Monitoring: <br/>
+3 <br/>
 <img src="https://i.ibb.co/FHnny86/3create-VM.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-4. Creating Custom Alert Rules:  <br/>
+4  <br/>
 <img src="https://i.ibb.co/VtgshBm/4create-VM-2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-5. Monitoring Security Incidents in Real-time:  <br/>
+5  <br/>
 <img src="https://i.ibb.co/HX7wbhS/5create-VM-3.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-6. Responding to Security Threats:  <br/>
+6. The virtual machine will be accessed via RDP(remote desktop protocol) this unfortunately leaves the public facing virtual machine open to being attacked via password brute forcing or a dictionary attack if the virtual machine’s ip address were to be scanned. To mitigate this risk a feature called Just In Time Access is enabled. Just In Time Access allows the virtual machine to only be accessed when a request is made and only can be accessed by the requester and can be restricted to certain IP addresses. :  <br/>
 <img src="https://i.ibb.co/BBNw0pZ/6labvm-with-just-in-time-this-one.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-7. Add Microsoft Sentinel to Workspace:  <br/>
+7. Next I am going to make a log analytics workspace that will store and log data collected from within the resource group. Additionally Microsoft sentinel(SIEM) will be added to the log analytics workspace 
+:  <br/>
 <img src="https://i.ibb.co/hXJy0Dg/7add-microsoft-sentinal-to-workspace.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -53,7 +55,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/p0frzzp/9create-log-analytics-workspace-2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-10. Microsoft Data Connectors:  <br/>
+10. Next i am going to use data connectors to get the data that will be collected into sentinel and create a data collection rule:  <br/>
 <img src="https://i.ibb.co/pyvNZHR/10microsoft-data-connectors-1.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -69,7 +71,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/LQ1MNHD/13windows-security-events-via-ama-data-collection-rule2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-14. VM Event Viewer - Windows Security Events:  <br/>
+14. Now i am going to make sure than everything is working by seeing if azure has registered the VM being logged into :  <br/>
 <img src="https://i.ibb.co/3hZnYG1/14-VM-event-viewer.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -77,7 +79,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/VgNjwfj/15-VM-event-viewer1.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-16. VM Event Viewer - Windows Security Events:  <br/>
+16. In the windows event viewer we can find out that the event ID for logging in is 4624 :  <br/>
 <img src="https://i.ibb.co/hBQyK75/16-VM-event-viewer2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
