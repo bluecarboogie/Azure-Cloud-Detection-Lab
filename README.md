@@ -1,7 +1,5 @@
 <h1>Azure Cloud Detection Lab</h1>
 
-### [YouTube Demonstration](https://youtu.be/YOUR_YOUTUBE_VIDEO_LINK)
-
 <h2>Description</h2>
 The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed to detect and respond to security threats within the Microsoft Azure cloud environment. This lab is entirely cloud-based, utilizing Microsoft Azure services and Microsoft Sentinel for advanced threat detection and monitoring.
 
