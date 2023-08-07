@@ -87,7 +87,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/Rc1KQkd/17-VM-event-viewer3.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-18. Microsoft Sentinel Logs:  <br/>
+18. Now we’re going to plug in the ID number into sentinel:  <br/>
 <img src="https://i.ibb.co/GsJxbxC/18microsoft-sentinal-logs1.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -95,7 +95,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/W64tXTP/19microsoft-sentinal-logs-2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-20. Microsoft Sentinel Logs:  <br/>
+20. Sentinel uses the KQL language for data searching, when the ID number for logging in is inputted we can see that sentinel is working and is receiving logs:  <br/>
 <img src="https://i.ibb.co/9sDWpy0/19microsoft-sentinal-logs-5.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -103,11 +103,11 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/BcQRCGt/20microsoft-sentinal-logs-6.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-22. MITRE Scheduled Task Attack:  <br/>
+22. Scheduled tasks can be used by malicious actors as a persistence technique to stay on a victim machine https://attack.mitre.org/techniques/T1053/ :  <br/>
 <img src="https://i.ibb.co/4ZVFkPV/21mitre-scheduled-task-attack-2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-23. VM Event Viewer - Configuring:  <br/>
+23. Now I'm going to create a custom rule that will detect whenever a certain scheduled task has been executed on the windows virtual machine, but first I will configure the virtual machine.:  <br/>
 <img src="https://i.ibb.co/sj24wwh/22-VM-event-viewer-configuring.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -123,7 +123,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/59k1B5w/25-VM-event-viewer-configuring3.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-27. VM - Creating Malicious Task:  <br/>
+27. Now I am going to create my malicious task. The task will be a scheduled opening of Microsoft PowerShell via the Windows task scheduler:  <br/>
 <img src="https://i.ibb.co/Vx8mXHh/26-VM-creating-malicious-task.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -139,19 +139,19 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/tLHCGyQ/29-VM-creating-malicious-task3.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-31. VM - Creating Malicious Task:  <br/>
+31. This shows that the scheduled task has been executed, now i'm going to use the provided event ID in microsoft sentinel:  <br/>
 <img src="https://i.ibb.co/Ry1zRz1/30-VM-creating-malicious-task5.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-32. Microsoft Sentinel Logs after Malicious Task:  <br/>
+32. Looks like the scheduled tasks are showing up in sentinel, but they're not giving much data with the given KQL prompt so I am going to add more to it:  <br/>
 <img src="https://i.ibb.co/Bygv68s/31microsoft-sentinal-logs-after-malicious-task.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-33. Microsoft Sentinel Logs after Malicious Task:  <br/>
+33. Now we are getting more information which would be pertinent during an investigation:  <br/>
 <img src="https://i.ibb.co/bmpDsX8/32microsoft-sentinal-logs-after-malicious-task2.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-34. Microsoft Sentinel Analytics:  <br/>
+34. Now I am going to create a query rule so that scheduled tasks will be logged in the Microsoft Sentinel incidents tab:  <br/>
 <img src="https://i.ibb.co/C0h9KKy/33-Microsoft-sentinal-analytics.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
@@ -175,7 +175,7 @@ The Azure Cloud Detection Lab is a comprehensive cybersecurity project designed 
 <img src="https://i.ibb.co/3dZ5899/38-Microsoft-sentinal-analytics-post-5.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 <br />
 <br />
-40. Untitled Notepad (Example Image):  <br/>
+40. This is the Sentinel incidents page after implementing our custom rule:  <br/>
 <img src="https://i.ibb.co/tLMgyXV/39-36-2023-07-22-07-32-34-Untitled-Notepad.png" height="80%" width="80%" alt="Azure Cloud Detection Lab"/>
 </p>
 
